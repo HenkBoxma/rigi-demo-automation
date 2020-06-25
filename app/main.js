@@ -64,40 +64,40 @@ const date = getNextDate();
 
   // Converting a 'wheel' step has to be done manually at this time
   const coffeePage = pages.pop();
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   await coffeePage.click(".btn-xl");
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   await coffeePage.click(".btn-outline-dark");
   await scrollToElement(coffeePage, "img[placement=\"top\"]");
   await coffeePage.click("[src='assets/images/toolicon.ico']");
-  await coffeePage.waitForTimeout(2000);
+  await coffeePage.waitForTimeout(3000);
   await coffeePage.click("[routerlink='coffee/about']");
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   await coffeePage.click("[routerlink='coffee/products']");
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   await coffeePage.click("[routerlink='coffee/store']");
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   await scrollToElement(coffeePage, "#dropdownBasic1");
   await coffeePage.click("#dropdownBasic1");
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   await coffeePage.click("[aria-labelledby='dropdownBasic1'] > :nth-child(1)");
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   await scrollTo(coffeePage, 0, 0);
   // Converting a 'wheel' step has to be done manually at this time
   await coffeePage.click("[routerlink='coffee/tips']");
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   // Converting a 'wheel' step has to be done manually at this time
   await scrollToElement(coffeePage, "#dropdownBasic2");
   await coffeePage.click("#dropdownBasic2");
-  await coffeePage.waitForTimeout(1500);
+  await coffeePage.waitForTimeout(3000);
   await coffeePage.click(".btn-login-dark .rigiElement");
   // Converting a 'wheel' step has to be done manually at this time
   await coffeePage.type("#email", 'coffee@rigi.io');
   await coffeePage.type("#password", 'coffee');
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   await coffeePage.click(".btn-block");
   await coffeePage.click("[routerlink='coffee/booking']");
-  await coffeePage.waitForTimeout(1000);
+  await coffeePage.waitForTimeout(3000);
   await scrollTo(coffeePage, 0, 700);
   // Converting a 'wheel' step has to be done manually at this time
   await coffeePage.click("[name='name']");
@@ -111,7 +111,7 @@ const date = getNextDate();
   await coffeePage.selectOption("[id='sitPicker']", 'Couple');
   await coffeePage.click(".btn-outline-dark");
   await scrollTo(coffeePage, 0, 0);
-  await coffeePage.waitForTimeout(2000);
+  await coffeePage.waitForTimeout(3000);
   await coffeePage.click(".btn-login-dark");
   // Converting a 'wheel' step has to be done manually at this time
   await coffeePage.click(".btn-login-dark");
