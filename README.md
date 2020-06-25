@@ -8,5 +8,10 @@ Demonstrate automation with Rigi
 - open terminal (cmd) in folder with package.json. Then run command **npm install**
 
 # Run
-After installition will be completed you need to run script. For run you need to enter next command in your terminal(cmd): `node <path to main.js>`, e.g. `node app/main.js`.
-Then script will ask you to enter your login, password and the name of project (**project must be at the first page**)
+1. Create a project on the Rigi server with a unique name. Make sure that this name is on the first page in the dashboard!
+2. Run the script from the command line: `node <path to main.js>`, e.g. `node app/main.js`.
+Then script will ask you to enter 
+- url (main URL of the rigi server: https://xyz.rigi.io
+- login (i.e. email)
+- password
+- name of project (**project must be at the first page**)
