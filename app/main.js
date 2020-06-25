@@ -1,18 +1,39 @@
 "use strict";
 const { chromium } = require('playwright');
+const prompts = require('prompts');
+
+const questions = [
+  {
+    type: 'text',
+    name: 'login',
+    message: 'Enter your Rigi login: '
+  },
+  {
+    type: 'password',
+    name: 'password',
+    message: 'Enter your Rigi password: ',
+  },
+  {
+    type: 'text',
+    name: 'project',
+    message: 'Enter project name: '
+  }
+];
 
 const getNextDate = () => {
   const date = new Date();
   date.setDate(date.getDate() + 1);
   return date.toLocaleString('default', {day: 'numeric', month: 'long', year: 'numeric'});
 }
-const login = process.argv[2];
-const pass = process.argv[3];
-const projectName = process.argv[4];
 const date = getNextDate();
 
-
 (async () => {
+  const {login, password, project } = await prompts(questions);
+  if(!login || !password || !project) {
+    console.log('You do not enter login or password or project name');
+    return;
+  }
+  
   const browser = await chromium.launch({headless: false, args: ['--window-size=1920,900']});
   const context = await browser.newContext({
     viewport: { width: 1920, height: 900 }
@@ -21,10 +42,10 @@ const date = getNextDate();
   await page.goto("http://localhost:4200");
   // Login
   await page.type("#mat-input-0", `${login}`);
-  await page.type("#mat-input-1", `${pass}`);
+  await page.type("#mat-input-1", `${password}`);
   await page.click("#loginButton > button");
 
-  await page.click(`xpath=//a[contains(text(),'${projectName}')]`);
+  await page.click(`xpath=//a[contains(text(),'${project}')]`);
   await page.click("[id='mat-expansion-panel-header-1'] .menu-title");
   await page.click(".capture-btn .mat-button-wrapper");
 
