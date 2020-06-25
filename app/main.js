@@ -5,6 +5,11 @@ const prompts = require('prompts');
 const questions = [
   {
     type: 'text',
+    name: 'url',
+    message: 'Enter URL of the server (with http or https): '
+  },
+  {
+    type: 'text',
     name: 'login',
     message: 'Enter your Rigi login: '
   },
@@ -28,7 +33,7 @@ const getNextDate = () => {
 const date = getNextDate();
 
 (async () => {
-  const {login, password, project } = await prompts(questions);
+  const {login, password, project, url } = await prompts(questions);
   if(!login || !password || !project) {
     console.log('You do not enter login or password or project name');
     return;
@@ -39,7 +44,7 @@ const date = getNextDate();
     viewport: { width: 1920, height: 900 }
   });
   const page = await context.newPage();
-  await page.goto("http://localhost:4200");
+  await page.goto(url);
   // Login
   await page.type("#mat-input-0", `${login}`);
   await page.type("#mat-input-1", `${password}`);
@@ -118,6 +123,7 @@ const date = getNextDate();
   await coffeePage.click(".btn-block");
   await coffeePage.waitForTimeout(5000);
   await browser.close();
+  console.log('Successfully completed. Check coverage of your project');
 })();
 
 // move to utils.js
